@@ -45,10 +45,11 @@ def pedir_numero():
     num = float(input("Ingrese un operando por favor: "))
     return num
 
-
+# Pido al usuario los numeros
 num1 = pedir_numero()
 num2 = pedir_numero()
 
+# Realizo la operación dependiendo de la opción ingresada por el usuario
 if operacion == "1":
     suma = calc.sumar_numeros(num1, num2)
     print(f"La suma es: {suma}")
@@ -59,6 +60,7 @@ elif operacion == "3":
     multiplicacion = calc.multiplicar_numeros(num1, num2)
     print(f"La multiplicacion es: {multiplicacion}")
 else:
+    # Repito hasta que el usuario ingrese un valor diferenre de cero
     while num2 == 0:
         print("Ingrese un valor diferente a cero para la division.")
         num2 = pedir_numero()
