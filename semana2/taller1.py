@@ -15,10 +15,10 @@
 def presentar_datos_personales():
     print("Thomas")
     print("Ramirez Rozo")
-    print("Calle 9 # 9-21")
-    print("311973245")
-    print("Barrio Chipre")
-    print("Manizales")
+    print("Avenida Simepre Viva 123")
+    print("123456789")
+    print("Barrio")
+    print("Ciudad")
     
 
 def dibujar_C_3_PO():    
