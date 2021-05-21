@@ -40,7 +40,7 @@ def pedir_numero():
     """Esta función pide al usuario un número de punto flotante y lo retorna
 
     Returns:
-        num {float}: Valor númerico de tipo float
+        num (float): Valor númerico de tipo float
     """
     num = float(input("Ingrese un operando por favor: "))
     return num
