@@ -48,7 +48,7 @@ def pedir_cadena():
     Returns:
         cadena_entrada (str): cadena ingresada por el usuario
     """
-    print("Ingrese la operación que desea realizar")
+    print("Ingrese la operación a realizar en el siguiente formato: [operando] [operador] [operando] (deje un espacio entre los operandos y el operador.)")
     cadena_entrada = input(">>> ")
     return cadena_entrada
 

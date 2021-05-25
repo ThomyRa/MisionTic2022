@@ -26,7 +26,7 @@ def aparecer_direccion():
     Returns
     -------
     criatura:str
-    Una de las 4 direcciones de la lista generadas aleatoriamente     
+    Una de las 4 direcciones de la lista generadas aleatoriamente
     """
     direccion = ["babor", "estribor", "proa", "popa"]
     indice = random.randint(0, 3)
