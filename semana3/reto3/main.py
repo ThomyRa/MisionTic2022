@@ -1,11 +1,13 @@
-#Completar con la solución del reto
-# importar modulos necesarios
-# la función esta por completar en Verificador.py
+"""
+    Reto semana 3 Fundamentos de Programación Grupo - 21
+    Centro Comercial ASCII
+    MisionTIC 2022
+    Thomas Ramírez Rozo
+    May 25 2021
+"""
 import verificador as ver 
 
-# Ejemplo de un código de Piso 1: Piso#1&
 
-# funciones
 def leer_codigo():
   codigo = input("Ingrese el código: ")
   while len(codigo) != 6:
@@ -13,6 +15,7 @@ def leer_codigo():
       codigo = input("Ingrese un código de 6 caracteres alanuméricos.")
   se_encuentra = ver.buscar_codigo(codigo)
   return se_encuentra, codigo
+
 
 def cerca_mercado(codigo):
     if int(codigo[4]) >= 3 and int(codigo[4]) <= 5:
@@ -41,15 +44,17 @@ while codigo_ok != True:
 
 print ("SE REALIZARÁ LA SIGUIENTE ENCUESTA")
 cerca_supermerca = cerca_mercado(codigo)
+
+# TODO  eL IF DE ABAJO NO ES NECESARIO. lA ENCUESTA SE PUEDE REALIZAR AUNQUE EL USUARIO NO ESTE CERCA DEL SUPER
 if cerca_supermerca == "si":
     esta_cerca_mercado = input("¿Esta usted cerca del supermercado [SI]/[NO]?\n>>> ").lower()
     if esta_cerca_mercado == 'si':
         piso_usuario = input("¿Cual es el piso en el que se encuentra?:")
         while piso_usuario != codigo[4]:
             piso_usuario = input("El código que ingreso no coincide con el el piso en el que se encuentra.\nIngrese nuevamente el piso.\n>>> ")
-        compra_super = input("¿Ha hecho una compra en el supermercado [SI]/[NO]?\n>>> ").lower()
-        compra_almacen=input("¿Ha hecho una compra en algun almacen [SI]/ [NO]?\n>>> ").lower()
-        # TODO
+    compra_super = input("¿Ha hecho una compra en el supermercado [SI]/[NO]?\n>>> ").lower()
+    compra_almacen=input("¿Ha hecho una compra en algun almacen [SI]/ [NO]?\n>>> ").lower()
+    # TODO
     if compra_super == "si" or compra_almacen == "si":
         estacionado = esta_estacionado()
         if estacionado == "si":

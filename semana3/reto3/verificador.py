@@ -1,7 +1,9 @@
-""" Programa para apoyar al marinero Seijo
+""" 
+    Módulo encargado de verificar que el codódigo ingresado sea correcto.
     MisiónTIC 2022
     Thomas Ramírez Rozo
-    Mayo 22-2021 """
+    Mayo 22-2021 
+"""
     
 ## crear función para buscar el Codigo
 def buscar_codigo(codigo):
@@ -11,15 +13,20 @@ def buscar_codigo(codigo):
         if codigo[0].isupper():
             if codigo.find("@") != -1:
                 if not codigo.find(" ") != -1:
-                    if "+" in codigo or "=" in codigo or "&" in codigo:
+                    chars = ["+", "=", "&"]
+                    if any(item in codigo for item in chars):
                         return True
                     else:
+                        print("Ha ingresado un código invalido.\nEl código no debe contener alguno de los siguientes caracteres: '+', '=', '&'.")
                         return False
                 else:
+                    print("Ha ingresado un código invalido.\nEl código no debe contener espacios.")
                     return False
             else:
+                print("Ha ingresado un código invalido.\nEl código contener el caracter '@'.")
                 return False
         else:
+            print("Ha ingresado un código invalido.\nEl código debe iniciar con mayuscula.")
             return False
     else:
         return False
