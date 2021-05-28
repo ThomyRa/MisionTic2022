@@ -54,8 +54,7 @@ En el archivo funciones_ciclos.py esta la línea base para implementar esta func
 # Tableros 
 Vamos a realizar una función que imprima un tablero como el siguiente
 
-![alt text]
-(https://raw.githubusercontent.com/oscarhf/Materiales_de_apoyo/master/tablero.png)
+![alt text](https://raw.githubusercontent.com/oscarhf/Materiales_de_apoyo/master/tablero.png)
 
 ## ¿Que debo hacer?
 
