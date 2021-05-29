@@ -28,5 +28,5 @@ import os
 # print(identificador_frutas(frutas))
 
 # Anula la luz azul a la luna
-cadena = pedirCadena()
-son_palindromos(cadena)
+# cadena = pedirCadena()
+# son_palindromos(cadena)

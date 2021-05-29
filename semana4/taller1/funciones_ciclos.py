@@ -9,7 +9,7 @@
 def simulador_caida_libre(altura):
     g = 9.8
     t = 1
-    distancias = [0,]
+    distancias = [0, ]
     dist = (1/2) * g * (t ** 2)
     while altura > dist:
         dist = round((1/2) * g * (t ** 2))

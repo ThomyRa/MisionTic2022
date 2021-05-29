@@ -48,18 +48,17 @@ def id_letra_inicial(word):
     vowels = ["a", "e", "i", "o", "u"]
     if word[0] in vowels:
         es_vocal = True
-    else:
-      es_vocal = False
+    es_vocal = False
     return es_vocal
-  
-  
+
+
 def identificador_frutas(frutas):
     frutas_A = []
     for fruta in frutas:
         if "a" in fruta:
             frutas_A.append(fruta)
     return frutas_A
-  
+
 
 def pedirCadena():
     cadena = input('Ingrese una cadena de valores alfabeticos: ')
