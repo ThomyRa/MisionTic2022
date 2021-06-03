@@ -1,68 +1,72 @@
-# funciones 
-# función para realizar busqueda de que artículos venden en la tienda. 
-# ingresar la lista de tienda y lista de cliente, solo con los nombre de los productos.
-def buscar_articulo(Lista_tienda,Lista_cliente):
-  """
-  Agregar comentarios
-  """
-  lista_buscar  = []    
-  for productos_cliente in Lista_cliente:
-    indicador = False
-    for productos in Lista_tienda:
-      if productos == productos_cliente:
-        indicador = True
-        break
-    lista_buscar.append(indicador)
-  return lista_buscar
+def show_lists(lista):
+    """Imprime el nombre y las cantidades de los productos en formato amogable al humano
 
-# función para realizar verificación de la cantidad del producto disponible.
-# ingresar Lista de tienda y lista de cliente en estructura de lista de listas.
-# [["Nombre a",cantidad],["Nombre b", cantidad]]
-def verificar_cantidad(Lista_tienda_articulos,Lista_cliente):
-  """
-  Agregar comentarios
-  """
-  Lista_cantidad = []
-  Lista_disponible = []
-  for index1 in range(len(Lista_cliente)):
-    for index2 in range(len(Lista_tienda_articulos)):
-      if Lista_tienda_articulos[index2] == Lista_cliente[index1]:
-        cantidad_tienda     = Lista_tienda_articulos[index2][1]
-        cantidad_solicitado = Lista_cliente[index1][1]
-        if  cantidad_tienda == 0:
-          Lista_cantidad.append("producto sin existencias")
-        elif cantidad_tienda >= cantidad_solicitado:
-          cantidad_tienda   = cantidad_tienda - cantidad_solicitado
-          Lista_disponible.append(cantidad_solicitado)
-          Lista_tienda_articulos[index2][1] = cantidad_tienda
-        else:
-          Lista_cantidad.append("producto con pocas existencias")
-          Lista_disponible.appens(cantidad_tienda)
+    Args:
+        lista (list): Lista en formato [Nombre, cantidad]
+    """
+    print("".ljust(27, "="))
+    for item in lista:
+        print(str(item[0]).ljust(25,".") + str(item[1]).rjust(2))
+    print("".ljust(27, "=")+"\n")
 
-  return Lista_cantidad,Lista_disponible,Lista_tienda_articulos
 
-# función para visualizar la cantidad de artículos en total tiene el establecimiento.
-# ingresar Lista de tienda en estructura de lista de listas
-# [["Nombre a",cantidad],["Nombre b", cantidad]]
-def cantidad_total(Lista_tienda):
-  """
-  Agregar comentarios
-  """
-  for index1 in range(len(Lista_tienda)):
-    print("Articulo {art}, Cantidad {cant}".format(art=Lista_tienda[index1][0],cant=Lista_tienda[index1][1]))
+def quantity_checker(store_quants, user_quants):
+    """Revisa la cantidad de productos en la tienda y los agrega a una lista en caso de encontrarlos.
 
-# imprimir artículos en una lista solicitados.
-# ingresar la lista de cliente, solo con los nombre de los productos.
-def imprimir_productos(Lista_cliente):
-  """
-  Agregar comentarios
-  """
-  for producto in Lista_cliente:
-    print(producto)
+    Args:
+        store_quants (list): Lista tienda formato [Nombre, Cantidad]
+        user_quants (list): Lista usuario formato nombre cantidfad
 
-# Función para presentar la venta realizada al usuario.
-def Venta_usuario():
-  """
-  Agregar comentarios
-  """
-  return
+    Returns:
+        [availible_articles (list): Lista de artículos disponibles en la tienda en formato [nombre, cantidad]
+    """
+    availible_articles = []
+    for store_item in store_quants:
+        for user_item in user_quants:
+            if user_item[0] == store_item[0]:
+                availible_articles.append(store_item)
+    return availible_articles
+
+
+def store_sale(store_quants, user_quants):
+    """Realiza la venta si los productos en la tienda son mayores a los solicitados por el usuario, pero si la cantidad solitada es mayor a la cantidad en la tienda, se le vcende sólo las existencias. En ambos casos se actualiza el inventario de la tienda. 
+
+    Args:
+        store_quants (list): Lista de la tienda en formato [Nombre, Cantidad]
+        user_quants (list): Lista del usuario en formato [Nombre, Cantidad]
+
+    Returns:
+        new_store_quants (list): Inventario actualizado de la tienda
+        comics_sold (list): Lista de productos vendidos al usuario usada posteriormente en el reporte.
+    """
+    new_store_quants = store_quants.copy()
+    comics_sold = []
+    for i in range(len(store_quants)):
+        for j in range(len(user_quants)):
+            if store_quants[i][0] == user_quants[j][0]:
+                stock_availible = store_quants[i][1]
+                user_request = user_quants[j][1]
+                diff = stock_availible - user_request
+                if user_quants[j][1] >= store_quants[i][1]:
+                    comics_sold.append([user_quants[j][0], store_quants[i][1]])
+                    new_store_quants[i][1] = 0
+                else:
+                    new_store_quants[i][1] = diff
+                    comics_sold.append([new_store_quants[i][0], user_quants[j][1]])
+    return new_store_quants, comics_sold
+
+
+def sales_store_report(store_stock):
+    """Lista generada después de la venta con los valores del inventario actualizados del inventario. Si hay 1 o menos productos, imprime "Bajas Existencias"
+
+    Args:
+        store_stock ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
+    sales_report = store_stock[:]
+    for comic in range(len(store_stock)):
+        if store_stock[comic][1] <= 1:
+            sales_report[comic][1] = "Bajas existencias."
+    return sales_report
