@@ -20,9 +20,32 @@ import random
 #   Algoritmo principal Punto de entrada a la aplicación (Conquistar)
 # =====================================================================
 
-dispositivos = {"electricos": ["luces", "tomas"], "sensor": ["humedad", "temperatura"], "alarma": ["movimiento", "apertura"]}
+dispositivos = {"electricos": ["luces", "tomas"], "sensor": ["humedad", "temperatura"], "alarma": ["movimiento", "apertura"], "estado": ["ON", "OFF"]}
 
-tipo_dispositivo = random.choice(list(dispositivos.keys()))
-id_dispositivo = random.choice(dispositivos[tipo_dispositivo])
+def string_generator():
+    device_type = random.choice(list(dispositivos.keys()))
+    device_id = random.choice(dispositivos[device_type])
+    estate = random.choice(dispositivos["estado"])
+    string_report = device_type + "," + device_id + "," + estate + "@"
+    return string_report
 
-print(tipo_dispositivo + "  " + id_dispositivo)
+
+def string_report():
+    num_devices = int(input("Cuantos dispositivos tiene el smart home?\n>>> "))
+    count = 0
+    smart_home_report = ""
+    while count <= num_devices:
+        smart_home_report += string_generator()
+        count += 1
+    return smart_home_report
+
+
+print(string_report())
+
+
+# smart_home_report = string_report()
+# sh.string_splitter(smart_home_report)
+
+
+
+
