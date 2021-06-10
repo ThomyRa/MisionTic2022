@@ -3,8 +3,7 @@ En un episodio de CSI un capo de la mafia diseño un interesante método para ev
 
 Es una estrategia simple e ingeniosa, cada digito es cambiado por el opuesto del teclado telefónico saltando al número 5,como lo muestra la siguente figura:
 
-![alt text]
-(https://raw.githubusercontent.com/oscarhf/Materiales_de_apoyo/master/teclado.png)
+![alt text](https://raw.githubusercontent.com/oscarhf/Materiales_de_apoyo/master/teclado.png)
 
 Como lo muestra la figura:
 *  del 1 se salta al 9 y del 9 al 1 (por encima del 5)

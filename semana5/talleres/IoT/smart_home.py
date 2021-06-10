@@ -1,13 +1,9 @@
-""" Modulo para el manejo de datos de dispositivos IoT 
-    Oscar Franco-Bedoya
-    Mayo 20-2021 """
-
-#======================================================================
-#          E S P A C I O    D E    T R A B A J O     A L U M N O
-# ====================================================================
-
-#----------Definición de Funciones (Dividir)------------
-
+""" Programa IoT#
+    Realiza lel calculo de estadisticas de Una 
+    Smarth Home
+    incorpora al modulo smarth_home.py
+    Thomas Ramírez Rozo
+    Junio 4-2021 """
 
 from collections import namedtuple
 from pprint import pprint
@@ -59,10 +55,10 @@ def calcular_estadisticas(lista_IoT):
         else:
             off_devices.append(device)
             off_count += 1
+
+    print("Los dispositivos en ON son:")
     
-    print("Los dispositivos en ON son:")            
     pprint(on_devices)
     print("\n")
     print("Los dispositivos en OFF son:")
     pprint(off_devices)
-    
